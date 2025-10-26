@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NKY Serves - Coming Soon</title>
+    <title>3rd Annual Community Day of Service - November 15, 2025</title>
     <style>
         * {
             margin: 0;
@@ -13,94 +13,534 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            padding: 20px;
+            background: #faf8f5;
+            color: #2d2d2d;
+            line-height: 1.6;
         }
 
-        .container {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #5a8f5a 0%, #4a7a4a 100%);
+            color: white;
             text-align: center;
-            max-width: 600px;
-            animation: fadeIn 1s ease-in;
+            padding: 60px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 10px;
             letter-spacing: -0.02em;
-            line-height: 1.2;
         }
 
-        .subtitle {
+        .hero .tagline {
             font-size: 1.5rem;
             font-weight: 300;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            margin-bottom: 20px;
+            opacity: 0.95;
         }
 
-        .message {
+        .hero .date-banner {
+            background: #ff8c42;
+            color: #2d2d2d;
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .hero .subtitle {
             font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.85;
+            max-width: 700px;
+            margin: 20px auto 0;
+            line-height: 1.8;
         }
 
-        .divider {
-            width: 80px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 2rem auto;
-            border-radius: 2px;
+        /* Donut Callout */
+        .donut-callout {
+            background: #ffd54f;
+            color: #2d2d2d;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-bottom: 4px solid #ffc107;
         }
 
-        .footer {
-            margin-top: 3rem;
+        .donut-callout span {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about h2 {
+            color: #5a8f5a;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 15px;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin-bottom: 60px;
+        }
+
+        .projects-section h2 {
+            color: #5a8f5a;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #5a8f5a;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: #5a8f5a;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .project-card .description {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .project-details {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .project-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .project-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-detail strong {
+            color: #2d2d2d;
+            min-width: 90px;
+            font-weight: 600;
+        }
+
+        .project-detail .icon {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .capacity-badge {
+            background: #ff8c42;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
             font-size: 0.9rem;
-            opacity: 0.7;
+            display: inline-block;
+            margin-top: 10px;
         }
 
+        .kid-friendly-badge {
+            background: #ffd54f;
+            color: #2d2d2d;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 8px;
+        }
+
+        /* Updates & Share Section */
+        .updates-share {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff8c42;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .updates-share p {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            margin-bottom: 15px;
+        }
+
+        .updates-share p:last-child {
+            margin-bottom: 0;
+        }
+
+        .updates-share strong {
+            color: #5a8f5a;
+        }
+
+        /* Sign Up Section */
+        .signup-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+        }
+
+        .signup-section h2 {
+            color: #5a8f5a;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-section p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Google Form Embed */
+        .google-form-embed {
+            width: 100%;
+            height: 2000px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #5a8f5a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-section a {
+            color: #ffd54f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .subtitle {
+            .hero .tagline {
                 font-size: 1.2rem;
             }
 
-            .message {
-                font-size: 1rem;
+            .hero .date-banner {
+                font-size: 1.4rem;
+                padding: 12px 30px;
+            }
+
+            .about h2, .projects-section h2, .signup-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-section {
+                padding: 25px 20px;
+            }
+
+            .google-form-embed {
+                height: 2200px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>NKY Serves</h1>
-        <div class="divider"></div>
-        <p class="subtitle">Coming Soon</p>
-        <p class="message">
-            We're working on something exciting. Check back soon to see what we have in store!
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>3rd Annual Community Day of Service</h1>
+        <p class="tagline">Building Bridges & Giving Back</p>
+        <div class="date-banner">Saturday, November 15, 2025</div>
+        <p class="subtitle">
+            Join us for a day of meaningful service across Northern Kentucky, Cincinnati, and Southern Indiana.
+            Whether you're coming with family, friends, a youth group, or your church community, there's a project for everyone!
         </p>
-        <div class="footer">
-            <p>&copy; 2025 NKY Serves. All rights reserved.</p>
+    </div>
+
+    <!-- Donut Callout -->
+    <div class="donut-callout">
+        <span>🍩</span> Free Donuts for All Volunteers! <span>🍩</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about">
+            <h2>Make a Difference in Your Community</h2>
+            <p>
+                Our 3rd Annual Community Day of Service brings together volunteers from across the region to serve
+                those in need. Choose from five incredible service projects happening throughout the day.
+            </p>
+            <p>
+                Perfect for individuals, families, youth groups, church groups, and anyone looking to give back.
+                All skill levels welcome!
+            </p>
         </div>
+
+        <!-- Updates & Share Section -->
+        <div class="updates-share">
+            <p><strong>📅 Check back for more details as projects get added and updated!</strong></p>
+            <p>💬 Know someone who would love to serve? <strong>Share these projects with friends and family!</strong></p>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="projects-section">
+            <h2>Choose Your Service Project</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1: BINGO with Seniors -->
+                <div class="project-card">
+                    <h3>BINGO with Seniors</h3>
+                    <p class="description">
+                        Come mingle and chat with our senior friends while enjoying a game of BINGO together!
+                        This heartwarming afternoon is perfect for spreading joy and creating connections with our elderly community members.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="icon">🕐</span>
+                            <strong>Time:</strong> 1:30 PM
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">📍</span>
+                            <strong>Location:</strong> Traditions at Camargo, Madeira, OH
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">👥</span>
+                            <strong>Capacity:</strong> 20 volunteers
+                        </div>
+                    </div>
+                    <span class="capacity-badge">20 Spots Available</span>
+                    <span class="kid-friendly-badge">👶 Kid Friendly</span>
+                </div>
+
+                <!-- Project 2: Prepare Affair -->
+                <div class="project-card">
+                    <h3>Prepare Affair - Raking & Gutter Cleaning</h3>
+                    <p class="description">
+                        Help seniors and homeowners living with disabilities by raking leaves and cleaning gutters.
+                        Join team "Scott Blackwelder The Church of Jesus Christ of Latter Day Saints" for this meaningful outdoor service.
+                        Great for families and groups who enjoy working together outdoors!
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="icon">🕐</span>
+                            <strong>Time:</strong> 9:00 AM
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">📍</span>
+                            <strong>Location:</strong> Cincinnati, OH
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">👥</span>
+                            <strong>Capacity:</strong> 30 volunteers
+                        </div>
+                    </div>
+                    <span class="capacity-badge">30 Spots Available</span>
+                </div>
+
+                <!-- Project 3: Bedrolls for Homeless -->
+                <div class="project-card">
+                    <h3>Help Keep the Homeless Warm!</h3>
+                    <p class="description">
+                        Make 110 foldable bedrolls for homeless individuals in our community. All materials are provided -
+                        just bring your helping hands and compassionate heart! Dress comfortably; long pants suggested.
+                        A hands-on project that makes a direct impact.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="icon">🕐</span>
+                            <strong>Time:</strong> 9:00 AM
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">📍</span>
+                            <strong>Location:</strong> St. Timothy Parish, Union, KY
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">👥</span>
+                            <strong>Capacity:</strong> 40 volunteers
+                        </div>
+                    </div>
+                    <span class="capacity-badge">40 Spots Available</span>
+                    <span class="kid-friendly-badge">👶 Kid Friendly</span>
+                </div>
+
+                <!-- Project 4: Thanksgiving Box Packing -->
+                <div class="project-card">
+                    <h3>Thanksgiving Box Packing</h3>
+                    <p class="description">
+                        Pack 250 Thanksgiving boxes at the North Dearborn Pantry warehouse to help families celebrate the holiday.
+                        The warehouse is heated, but dress in layers. Must be able to lift boxes.
+                        All items provided - come ready to work and make Thanksgiving special for families in need!
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="icon">🕐</span>
+                            <strong>Time:</strong> 9:00 AM
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">📍</span>
+                            <strong>Location:</strong> North Dearborn Pantry, West Harrison, IN
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">👥</span>
+                            <strong>Capacity:</strong> 15 volunteers
+                        </div>
+                    </div>
+                    <span class="capacity-badge">15 Spots Available</span>
+                    <span class="kid-friendly-badge">👶 Kid Friendly</span>
+                </div>
+
+                <!-- Project 5: Property Cleanup -->
+                <div class="project-card">
+                    <h3>Children's Home Property Cleanup</h3>
+                    <p class="description">
+                        Help clear undergrowth and brush around the perimeter of the Children's Home of Northern Kentucky property.
+                        Bring weed-eaters, large pruning shears, axes, and other equipment for clearing brush.
+                        Perfect for those who love outdoor work and want to help maintain a safe space for children.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="icon">🕐</span>
+                            <strong>Time:</strong> 9:00 AM
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">📍</span>
+                            <strong>Location:</strong> Devou Park, KY
+                        </div>
+                        <div class="project-detail">
+                            <span class="icon">👥</span>
+                            <strong>Capacity:</strong> 30 volunteers
+                        </div>
+                    </div>
+                    <span class="capacity-badge">30 Spots Available</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Sign Up Section -->
+        <div class="signup-section">
+            <h2>Sign Up for Your Project</h2>
+            <p>
+                Fill out the form below to reserve your spot. We'll send you a confirmation email with all the details!
+            </p>
+            <div class="form-container">
+                <iframe
+                    class="google-form-embed"
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSchMGH-crUVRBIyeeyouVQ7dZw-NDa1a9bTNfrMRXM_Mi_HyQ/viewform?embedded=true"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                    Loading form...
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Questions?</h2>
+            <p>
+                Contact Sarah Curtis at <a href="mailto:spcurtis3@gmail.com">spcurtis3@gmail.com</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95rem;">
+                We're here to help! Don't hesitate to reach out with any questions about the Day of Service.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 NKY Serves - 3rd Annual Community Day of Service. All rights reserved.</p>
+        <p style="margin-top: 10px;">Building Bridges & Giving Back</p>
     </div>
 </body>
 </html>
