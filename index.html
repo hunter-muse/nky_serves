@@ -404,7 +404,7 @@
                             <strong>Perks:</strong> Free breakfast & lunch with food trucks!
                         </div>
                     </div>
-                    <span class="capacity-badge">30 Spots Available</span>
+                    <span class="capacity-badge" data-project="prepareAffair">30 Spots Available</span>
                     <span class="kid-friendly-badge">👶 Kid Friendly</span>
                 </div>
 
@@ -436,7 +436,7 @@
                             <strong>Impact:</strong> Create a safer, more welcoming space for kids in care
                         </div>
                     </div>
-                    <span class="capacity-badge">30 Spots Available</span>
+                    <span class="capacity-badge" data-project="childrensHome">30 Spots Available</span>
                 </div>
 
                 <!-- Project 3: BINGO with Seniors -->
@@ -460,7 +460,7 @@
                             <strong>Capacity:</strong> 20 volunteers
                         </div>
                     </div>
-                    <span class="capacity-badge">10 Spots Available</span>
+                    <span class="capacity-badge" data-project="bingo">10 Spots Available</span>
                     <span class="kid-friendly-badge">👶 Kid Friendly</span>
                 </div>
 
@@ -486,7 +486,7 @@
                             <strong>Capacity:</strong> 40 volunteers
                         </div>
                     </div>
-                    <span class="capacity-badge">5 Spots Available</span>
+                    <span class="capacity-badge" data-project="bedrolls">5 Spots Available</span>
                 </div>
 
                 <!-- Project 5: Thanksgiving Box Packing -->
@@ -511,7 +511,7 @@
                             <strong>Capacity:</strong> 15 volunteers
                         </div>
                     </div>
-                    <span class="capacity-badge">FULL - Waitlist Available</span>
+                    <span class="capacity-badge" data-project="thanksgiving">FULL - Waitlist Available</span>
                     <span class="kid-friendly-badge">👶 Kid Friendly</span>
                 </div>
 
@@ -553,5 +553,61 @@
         <p>&copy; 2025 NKY Serves - 3rd Annual Community Day of Service. All rights reserved.</p>
         <p style="margin-top: 10px;">Building Bridges & Giving Back</p>
     </div>
+
+    <!-- Dynamic Availability Script -->
+    <script>
+        // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzhn3qUwq2TQKNArD8SSU0xpg7tJrCDKFOw1Gkq0TmKWzBH9OW9ag7Kat-OJR0z0r11xw/exec';
+
+        // Fetch availability data from Google Sheets
+        async function updateAvailability() {
+            // If API URL hasn't been configured yet, skip
+            if (API_URL === 'https://script.google.com/macros/s/AKfycbzhn3qUwq2TQKNArD8SSU0xpg7tJrCDKFOw1Gkq0TmKWzBH9OW9ag7Kat-OJR0z0r11xw/exec') {
+                console.log('ℹ️ API URL not configured. Using static availability numbers.');
+                return;
+            }
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                console.log('✓ Availability data loaded successfully:', data);
+
+                // Update each project's capacity badge
+                updateProjectBadge('prepareAffair', data.prepareAffair);
+                updateProjectBadge('childrensHome', data.childrensHome);
+                updateProjectBadge('bingo', data.bingo);
+                updateProjectBadge('bedrolls', data.bedrolls);
+                updateProjectBadge('thanksgiving', data.thanksgiving);
+
+            } catch (error) {
+                console.error('⚠️ Error fetching availability data:', error);
+                console.log('Using fallback static numbers from HTML.');
+            }
+        }
+
+        // Update individual project badge
+        function updateProjectBadge(projectId, projectData) {
+            const badge = document.querySelector(`[data-project="${projectId}"]`);
+            if (!badge) return;
+
+            const available = projectData.available;
+            const capacity = projectData.capacity;
+
+            if (available <= 0) {
+                badge.textContent = 'FULL - Waitlist Available';
+                badge.style.background = '#d32f2f'; // Red for full
+            } else if (available <= 5) {
+                badge.textContent = `Only ${available} Spots Left!`;
+                badge.style.background = '#ff6b35'; // Orange for low availability
+            } else {
+                badge.textContent = `${available} Spots Available`;
+                badge.style.background = '#ff8c42'; // Default orange
+            }
+        }
+
+        // Load availability when page loads
+        document.addEventListener('DOMContentLoaded', updateAvailability);
+    </script>
 </body>
 </html>
