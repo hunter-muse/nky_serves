@@ -404,7 +404,7 @@
                             <strong>Perks:</strong> Free breakfast & lunch with food trucks!
                         </div>
                     </div>
-                    <span class="capacity-badge" data-project="prepareAffair">30 Spots Available</span>
+a                    <span class="capacity-badge" data-project="prepareAffair">30 Spots Available</span>
                     <span class="kid-friendly-badge">👶 Kid Friendly</span>
                 </div>
 
@@ -561,12 +561,6 @@
 
         // Fetch availability data from Google Sheets
         async function updateAvailability() {
-            // If API URL hasn't been configured yet, skip
-            if (API_URL === 'https://script.google.com/macros/s/AKfycbzhn3qUwq2TQKNArD8SSU0xpg7tJrCDKFOw1Gkq0TmKWzBH9OW9ag7Kat-OJR0z0r11xw/exec') {
-                console.log('ℹ️ API URL not configured. Using static availability numbers.');
-                return;
-            }
-
             try {
                 const response = await fetch(API_URL);
                 const data = await response.json();
